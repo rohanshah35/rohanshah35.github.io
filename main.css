@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(35, 35, 35);
+    background-color: rgb(31, 31, 31);
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,6 +9,6 @@ body {
   }
 
   .title {
-    font-size: 2em;
+    font-size: 5em;
     color: #f2f2f2;
 }
