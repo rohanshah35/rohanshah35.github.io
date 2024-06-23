@@ -1,3 +1,14 @@
 body {
     background-color: rgb(35, 35, 35);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
+
+  .title {
+    font-size: 2em;
+    color: #f2f2f2;
+}
