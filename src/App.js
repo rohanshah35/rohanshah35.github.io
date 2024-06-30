@@ -14,9 +14,9 @@ function App() {
           <h2>About Section</h2>
           <p>Content for the about section.</p>
         </div>
-        <div id="work" className="section">
-          <h2>Work Section</h2>
-          <p>Content for the work section.</p>
+        <div id="projects" className="section">
+          <h2>Project Section</h2>
+          <p>Content for the project section.</p>
         </div>
         <div id="contact" className="section">
           <h2>Contact Section</h2>
