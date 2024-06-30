@@ -54,6 +54,6 @@ body {
 @media (max-width: 800px) {
 
     .nav li h1 {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
     }
 }
