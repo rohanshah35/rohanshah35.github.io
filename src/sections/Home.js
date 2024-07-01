@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <div id="home" className="home">
-      <div style={{ color: "black", fontSize: "6.5vw" }}>
+      <div style={{ color: "black", fontSize: "4.5vw" }}>
         I'm&nbsp;
         <span style={{ color: "red", fontWeight: "normal" }}>
           {text}
