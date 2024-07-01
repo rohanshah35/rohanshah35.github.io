@@ -17,16 +17,19 @@ const Home = () => {
 
   return (
     <div id="home" className="home">
-      <div style={{ color: "black", fontSize: "4.5vw" }}>
+      <div style={{ color: "black", fontSize: "3.75vw" }}>
         I'm&nbsp;
         <span style={{ color: "red", fontWeight: "normal" }}>
           {text}
         </span>
         <Cursor cursorStyle='_' />
       </div>
-      <button className="scroll-button" onClick={scrollToAbout}>
-        <ChevronDown size={32} color="black" />
-      </button>
+      <div class="scroll-button-container">
+        <button className="scroll-button" onClick={scrollToAbout}>
+          <ChevronDown/>
+        </button>
+      </div>
+
     </div>
   );
 };
