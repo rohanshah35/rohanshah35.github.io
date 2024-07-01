@@ -11,6 +11,7 @@ body {
 }
 
 .nav {
+    animation: fade-in 1s;
     position: fixed;
     top: 0;
     left: 0;
@@ -19,7 +20,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 10px 1rem;
-    background-color: white;
+    background-color: #FAFAFA;
     color: black;
     z-index: 1000;
     flex-wrap: wrap;
@@ -57,3 +58,12 @@ body {
         font-size: 0.7rem;
     }
 }
+
+@keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 100;
+    }
+  }
