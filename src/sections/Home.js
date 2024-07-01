@@ -5,7 +5,7 @@ import { ChevronDown } from 'react-bootstrap-icons';
 
 const Home = () => {
   const [text] = useTypewriter({
-    words: ['Rohan Shah.', 'a developer.'],
+    words: ['Rohan Shah.', 'a developer.', 'currently a student.'],
     typeSpeed: 120,
     deleteSpeed: 120,
     loop: {}
