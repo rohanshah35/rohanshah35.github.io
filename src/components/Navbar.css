@@ -43,7 +43,7 @@ body {
 }
 
 .nav li:hover {
-    color: rgb(126, 126, 126);
+    color: gray;
 }
 
 .section {

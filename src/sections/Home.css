@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono');
 
 .home {
-  animation: fade-in 3s;
+  animation: fade-in 4s;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -16,6 +16,7 @@
 }
 
 .scroll-button {
+  color: black;
   background: none;
   border: none;
   cursor: pointer;
@@ -60,9 +61,9 @@
 .scroll-button:hover {
   animation: none;
   transform: translate(-50%, 0) !important;
+  color: gray;
 }
 
-/* Apply fade-in animation only once on page load */
 @keyframes initial-fade-in {
   from {
     opacity: 0;
