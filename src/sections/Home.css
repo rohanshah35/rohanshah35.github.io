@@ -7,8 +7,9 @@
   align-items: center;
   text-align: center;
   padding: 20px;
+  flex: 1;
   min-height: 100vh;
-  position: relative; /* Added this */
+  position: relative;
 }
 
 .home div {
@@ -16,8 +17,8 @@
 }
 
 .down-about-container {
-  position: absolute; /* Changed to absolute positioning */
-  bottom: 1.75vw; /* Adjusted bottom position */
+  position: absolute;
+  bottom: 1.75vw;
   left: 50%;
   transform: translateX(-50%);
   animation: initial-fade-in 3s;
@@ -48,9 +49,9 @@
   background-color: #e0e0e0;
   border: none;
   border-radius: 50%;
-  margin: 0 10px;
-  padding: 1.2vw;
-  font-size: 1.25vw;
+  margin: 0 20px;
+  padding: 1vw;
+  font-size: 1vw;
   display: flex;
   align-items: center;
   justify-content: center;

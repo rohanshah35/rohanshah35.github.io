@@ -28,13 +28,13 @@ const Home = () => {
         <span style={{ color: "red", fontWeight: "normal" }}>
           {text}
         </span>
-        <Cursor cursorStyle='_' />
+        <Cursor cursorStyle='<' />
       </div>
 
       <div className="icon-buttons-container">
         <div className="icon-buttons">
           <a href="https://www.linkedin.com/in/rohanshah2/" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'black' }}><Linkedin /></a>
-          <a href="mailto:rohanshahsf@gmail.com?Subject=Hello%20world!" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'black' }}><EnvelopeFill /></a>
+          <a href="mailto:rohanshahsf@gmail.com" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'black' }}><EnvelopeFill /></a>
           <a href="https://github.com/rohanshah35" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'black' }}><Github /></a>
         </div>
       </div>
