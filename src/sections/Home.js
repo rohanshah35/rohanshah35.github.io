@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
-import { ChevronDown } from 'react-bootstrap-icons';
+import { ChevronDown, Linkedin, EnvelopeFill, Github } from 'react-bootstrap-icons';
 
 const Home = () => {
   const [text] = useTypewriter({
@@ -9,7 +9,7 @@ const Home = () => {
     typeSpeed: 120,
     deleteSpeed: 120,
     loop: {}
-  })
+  });
 
   const scrollToAbout = () => {
     document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
@@ -17,19 +17,27 @@ const Home = () => {
 
   return (
     <div id="home" className="home">
-      <div style={{ color: "black", fontSize: "3.75vw" }}>
+      <div style={{ color: "black", fontSize: "4.5vw" }}>
         I'm&nbsp;
         <span style={{ color: "red", fontWeight: "normal" }}>
           {text}
         </span>
         <Cursor cursorStyle='_' />
       </div>
-      <div class="scroll-button-container">
-        <button className="scroll-button" onClick={scrollToAbout}>
-          <ChevronDown/>
+
+      <div className="icon-buttons-container">
+        <div className="icon-buttons">
+          <a href="https://www.linkedin.com/in/rohanshah2/" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'black' }}><Linkedin /></a>
+          <a href="mailto:rohanshahsf@gmail.com?Subject=Hello%20world!" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'black' }}><EnvelopeFill /></a>
+          <a href="https://github.com/rohanshah35" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'black' }}><Github /></a>
+        </div>
+      </div>
+      
+      <div className="down-about-container">
+        <button className="down-about" onClick={scrollToAbout}>
+          <ChevronDown />
         </button>
       </div>
-
     </div>
   );
 };

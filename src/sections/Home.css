@@ -1,40 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono');
-
 .home {
+  background-color: #FAFAFA;
   animation: fade-in 4s;
-  flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
   min-height: 100vh;
+  position: relative; /* Added this */
 }
 
 .home div {
   font-family: 'IBM Plex Mono', sans-serif;
 }
 
-.scroll-button {
+.down-about-container {
+  position: absolute; /* Changed to absolute positioning */
+  bottom: 1.75vw; /* Adjusted bottom position */
+  left: 50%;
+  transform: translateX(-50%);
+  animation: initial-fade-in 3s;
+}
+
+.down-about {
   color: black;
   background: none;
   border: none;
   cursor: pointer;
-  position: absolute;
-  bottom: 1.5vw;
-  left: 50%;
-  transform: translateX(-50%);
   animation: bounce 1.5s infinite ease-in-out;
   transition: transform 0.3s ease-out;
 }
 
-.scroll-button svg {
-  width: 1.25vw;
+.down-about svg {
+  width: 1.5vw;
   height: auto;
 }
 
+.icon-buttons {
+  animation: fade-in 3s;
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.icon-button {
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 50%;
+  margin: 0 10px;
+  padding: 1.2vw;
+  font-size: 1.25vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.icon-button:hover {
+  animation: none;
+  transform: scale(1.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 1100px) {
-  .scroll-button svg {
+  .down-about svg {
     width: 4vw;
     height: auto;
   }
@@ -51,16 +81,16 @@
 
 @keyframes bounce {
   0%, 100% {
-    transform: translate(-50%, 0);
+    transform: translate(0, 0);
   }
   50% {
-    transform: translate(-50%, -10px);
+    transform: translate(0, -10px);
   }
 }
 
-.scroll-button:hover {
+.down-about:hover {
   animation: none;
-  transform: translate(-50%, 0) !important;
+  transform: scale(1.3) !important;
   color: gray;
 }
 
@@ -71,8 +101,4 @@
   to {
     opacity: 1;
   }
-}
-
-.scroll-button-container {
-  animation: initial-fade-in 3s;
 }
