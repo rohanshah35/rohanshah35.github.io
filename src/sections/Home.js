@@ -1,3 +1,9 @@
+/*
+ * Have to fix down button to far down on phone screen
+ * Have to fix icons too small on phone screen
+ * Have to fix typing text to small on phone screen
+ */
+
 import React from 'react';
 import './Home.css';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
