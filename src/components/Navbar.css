@@ -40,10 +40,13 @@ body {
     cursor: pointer;
     flex: 1;
     text-align: center;
+    
+    padding: 10px 20px;
 }
 
 .nav li:hover {
-    color: gray;
+    background-color: #e0e0e0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .section {

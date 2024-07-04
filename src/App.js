@@ -9,12 +9,22 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Home />
-      <About />
-      <Projects />
-      <Contact />
-    </div>
+      <Navbar /> 
+      <div className="snap-scroll-container">
+        <div className="snap-scroll-item">
+          <Home />
+        </div>
+        <div className="snap-scroll-item">
+          <About />
+        </div>
+        <div className="snap-scroll-item">
+          <Projects />
+        </div>
+        <div className="snap-scroll-item">
+          <Contact />
+        </div>
+      </div>
+    </div>        
   );
 }
 
