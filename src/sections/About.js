@@ -13,7 +13,12 @@ const About = () => {
     <div id="about" className="about">
       <img src={profileImage} alt="Profile" className="profile-image" />
       <span className="about-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperd 
+      Hello! I'm a sophomore at Purdue University, majoring in Computer Science and set to graduate in 2026. 
+      From the great Bay Area, I've grown up surrounded by the innovation hub that is Silicon Valley. 
+      My passion for technology was sparked early by my father, whose extensive background in computer science inspired me to build my first PC at the age of 11—an experience that catalyzed my curiosity and drive. 
+      Since then, I've dedicated myself to continually refining and expanding my skills, eagerly applying them to projects whenever possible. 
+      When I’m not coding, you can see me at the gym, outside enjoying nature, or playing my guitar.
+      I invite you to explore my portfolio and discover more about my journey in computer science!
       </span>
 
       <div className="down-projects-container">
