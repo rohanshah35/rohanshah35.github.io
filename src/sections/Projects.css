@@ -27,7 +27,7 @@
 .progress-bar {
   height: 0.2%;
   background-color: black;
-  border-radius: 100px;
+  border-radius: 50px;
   transition: width 0.2s ease-out;
   margin-top: 4vw;
 }
