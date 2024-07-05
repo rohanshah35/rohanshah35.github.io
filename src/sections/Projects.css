@@ -1,10 +1,74 @@
 .projects {
   background-color: #FAFAFA;
-  flex: 1;
+  height: 100vh;
+  width: 100vw;
+  margin: 0rem;
+  overflow: hidden;
+  position: relative;
+}
+
+#image-track > .image {
+  width: 32vmin;
+  height: 48vmin;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+#image-track {
+  display: flex;
+  gap: 4vmin;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+.progress-bar {
+  height: 0.2%;
+  background-color: black;
+  border-radius: 100px;
+  transition: width 0.2s ease-out;
+  margin-top: 4vw;
+}
+
+.progress-text {
+  font-size: 1vw;
+  margin-top: 10vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 20px;
-  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.down-contact-container {
+  position: absolute;
+  bottom: 1.75vw;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: initial-fade-in 3s;
+}
+
+.down-contacts {
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  animation: bounce 1.5s infinite ease-in-out;
+  transition: transform 0.3s ease-out;
+}
+
+.down-contacts svg {
+  width: 1.5vw;
+  height: auto;
+}
+
+.down-contacts:hover {
+  animation: none;
+  transform: scale(1.3) !important;
+  color: gray;
 }

@@ -31,7 +31,7 @@ body {
     margin: 0;
     list-style: none;
     display: flex;
-    gap: 5vw;
+    gap: 3vw;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -41,7 +41,7 @@ body {
     flex: 1;
     text-align: center;
     
-    padding: 10px 20px;
+    padding: 10px 18px;
 }
 
 .nav li:hover {
