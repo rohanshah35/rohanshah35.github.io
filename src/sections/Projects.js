@@ -30,16 +30,19 @@ const Projects = () => {
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleMouseMove = useCallback(throttle((e) => {
-    const mouseDelta = mouseDownAt - e.clientX;
-    const maxDelta = trackRef.current.offsetWidth / 2;
-    let nextPercentage = prevPercentage + (mouseDelta / maxDelta) * -100;
+  const handleMouseMove = useCallback(
+    throttle((e) => {
+      const mouseDelta = mouseDownAt - e.clientX;
+      const maxDelta = trackRef.current.offsetWidth / 2;
+      let nextPercentage = prevPercentage + (mouseDelta / maxDelta) * -100;
 
-    nextPercentage = Math.max(-100, Math.min(0, nextPercentage));
+      nextPercentage = Math.max(-100, Math.min(0, nextPercentage));
 
-    setPercentage(nextPercentage);
-    setProgress(Math.abs(nextPercentage));
-  }, 16), [mouseDownAt, prevPercentage]);
+      setPercentage(nextPercentage);
+      setProgress(Math.abs(nextPercentage));
+    }, 16),
+    [mouseDownAt, prevPercentage]
+  );
 
   const handleMouseUp = useCallback(() => {
     setMouseDownAt(null);
@@ -79,6 +82,38 @@ const Projects = () => {
     e.preventDefault();
     setMouseDownAt(e.clientX);
   };
+
+  const handleWheel = useCallback(
+    (e) => {
+      const scrollDelta = e.deltaY;
+      const maxPercentage = -100;
+      const minPercentage = 0;
+
+      let nextPercentage = percentage - (scrollDelta / trackRef.current.offsetWidth) * 100;
+      nextPercentage = Math.max(maxPercentage, Math.min(minPercentage, nextPercentage));
+
+      if ((nextPercentage <= maxPercentage - 1 && scrollDelta > 0) || (nextPercentage >= minPercentage + 1 && scrollDelta < 0)) {
+        return;
+      }
+
+      setPercentage(nextPercentage);
+      setPrevPercentage(nextPercentage);
+      setProgress(Math.abs(nextPercentage));
+
+      e.preventDefault();
+    },
+    [percentage]
+  );
+
+  useEffect(() => {
+    const track = trackRef.current;
+
+    track.addEventListener('wheel', handleWheel);
+
+    return () => {
+      track.removeEventListener('wheel', handleWheel);
+    };
+  }, [handleWheel]);
 
   return (
     <div id="projects" className="projects">
@@ -139,7 +174,6 @@ const Projects = () => {
           <ChevronDown />
         </button>
       </div>
-
     </div>
   );
 };

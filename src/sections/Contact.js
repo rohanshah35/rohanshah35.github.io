@@ -1,11 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactCardFlip from 'react-card-flip';
 import './Contact.css';
+import { Linkedin, EnvelopeFill, Github } from 'react-bootstrap-icons';
 
 const Contact = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleClick = () => {
+    setIsFlipped(!isFlipped);
+  };
+
+  // Prevent flipping when clicking on buttons inside the card
+  const preventFlip = (event) => {
+    event.stopPropagation();
+  };
+
   return (
-    <div id="contact" className="contact">
-      <h2>Contact Section</h2>
-      <p>Content for the contact section.</p>
+    <div id="contact" className='contact'>
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+        <div className='card' onClick={handleClick}>
+          <div className='card-content'>
+            <p className='logo-text'>RS</p>
+            <div className='card-type' style={{ color: "black", fontSize: "1.75vw" }}>
+              &lt;&nbsp;
+              <span style={{ color: "black", fontWeight: "normal" }}>
+                CLICK ME
+              </span>
+              &nbsp;&gt;
+            </div>
+          </div>
+        </div>
+
+        <div className='card card-back' onClick={handleClick}>
+          <div className='card-content'>
+            <p className='contact-title'>Rohan Shah</p>
+            <div className="icon-buttons-container">
+              <div className="icon-buttons">
+                <a href="https://www.linkedin.com/in/rohanshah2/" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'white' }} onClick={preventFlip}><Linkedin /></a>
+                <a href="mailto:rohanshahsf@gmail.com" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'white' }} onClick={preventFlip}><EnvelopeFill /></a>
+                <a href="https://github.com/rohanshah35" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'white' }} onClick={preventFlip}><Github /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ReactCardFlip>
     </div>
   );
 };

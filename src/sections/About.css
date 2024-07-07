@@ -36,7 +36,6 @@
   bottom: 1.75vw;
   left: 50%;
   transform: translateX(-50%);
-  animation: initial-fade-in 3s;
 }
 
 .down-projects {
@@ -105,12 +104,3 @@
   }
 
 }  
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}

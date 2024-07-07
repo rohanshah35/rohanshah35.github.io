@@ -8,11 +8,16 @@
 }
 
 #image-track > .image {
-  width: 32vmin;
-  height: 48vmin;
+  width: 34vmin;
+  height: 50vmin;
   object-fit: cover;
   object-position: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+#image-track > .image:hover {
+  transform: scale(1.1) !important;
 }
 
 #image-track {
@@ -34,7 +39,7 @@
 
 .progress-text {
   font-size: 1vw;
-  margin-top: -20vw;
+  margin-top: -21vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +55,6 @@
   bottom: 1.75vw;
   left: 50%;
   transform: translateX(-50%);
-  animation: initial-fade-in 3s;
 }
 
 .down-contacts {
