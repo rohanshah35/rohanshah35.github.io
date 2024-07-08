@@ -23,7 +23,7 @@ const Contact = () => {
             <p className='logo-text'>RS</p>
             <div className='card-type' style={{ color: "black", fontSize: "1.75vw" }}>
               &lt;&nbsp;
-              <span style={{ color: "black", fontWeight: "normal" }}>
+              <span style={{ color: "red", fontWeight: "normal" }}>
                 CLICK ME
               </span>
               &nbsp;&gt;
@@ -33,7 +33,6 @@ const Contact = () => {
 
         <div className='card card-back' onClick={handleClick}>
           <div className='card-content'>
-            <p className='contact-title'>Rohan Shah</p>
             <div className="icon-buttons-container">
               <div className="icon-buttons">
                 <a href="https://www.linkedin.com/in/rohanshah2/" rel="noopener noreferrer" target="_blank" className="icon-button" style={{ color: 'white' }} onClick={preventFlip}><Linkedin /></a>

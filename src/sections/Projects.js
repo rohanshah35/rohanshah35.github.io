@@ -3,12 +3,17 @@ import './Projects.css';
 import image1 from './project-images/image1.jpg';
 import image2 from './project-images/image2.jpg';
 import { ChevronDown } from 'react-bootstrap-icons';
+import Modal from '../components/Modal';
+import Project1 from '../components/Project1';
+import Project2 from '../components/Project2';
+import Project3 from '../components/Project3';
 
 const Projects = () => {
   const [mouseDownAt, setMouseDownAt] = useState(null);
   const [prevPercentage, setPrevPercentage] = useState(0);
   const [percentage, setPercentage] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [modalOpen, setModalOpen] = useState([false, false, false, false, false, false]);
 
   const trackRef = useRef(null);
   const imageRefs = useRef([]);
@@ -78,9 +83,16 @@ const Projects = () => {
     };
   }, [percentage, mouseDownAt, handleMouseMove, handleMouseUp]);
 
-  const handleMouseDown = (e) => {
-    e.preventDefault();
-    setMouseDownAt(e.clientX);
+  const handleImageClick = (index) => {
+    let newModalOpen = [...modalOpen];
+    newModalOpen[index] = true;
+    setModalOpen(newModalOpen);
+  };
+
+  const handleCloseModal = (index) => {
+    let newModalOpen = [...modalOpen];
+    newModalOpen[index] = false;
+    setModalOpen(newModalOpen);
   };
 
   const handleWheel = useCallback(
@@ -122,51 +134,24 @@ const Projects = () => {
       <div
         id="image-track"
         ref={trackRef}
-        onMouseDown={handleMouseDown}
+        onMouseDown={(e) => {
+          e.preventDefault();
+          setMouseDownAt(e.clientX);
+        }}
         style={{ transform: `translate(${percentage}%, -50%)` }}
       >
-        <img
-          ref={(el) => (imageRefs.current[0] = el)}
-          className="image"
-          src={image2}
-          draggable="false"
-          alt="Project 1"
-        />
-        <img
-          ref={(el) => (imageRefs.current[1] = el)}
-          className="image"
-          src={image2}
-          draggable="false"
-          alt="Project 2"
-        />
-        <img
-          ref={(el) => (imageRefs.current[2] = el)}
-          className="image"
-          src={image2}
-          draggable="false"
-          alt="Project 3"
-        />
-        <img
-          ref={(el) => (imageRefs.current[3] = el)}
-          className="image"
-          src={image2}
-          draggable="false"
-          alt="Project 4"
-        />
-        <img
-          ref={(el) => (imageRefs.current[4] = el)}
-          className="image"
-          src={image2}
-          draggable="false"
-          alt="Project 5"
-        />
-        <img
-          ref={(el) => (imageRefs.current[5] = el)}
-          className="image"
-          src={image2}
-          draggable="false"
-          alt="Project 6"
-        />
+        {/* Render project images */}
+        {[image2, image2, image2, image2, image2, image2].map((image, index) => (
+          <img
+            key={index}
+            ref={(el) => (imageRefs.current[index] = el)}
+            className="image"
+            src={image}
+            draggable="false"
+            alt={`Project ${index + 1}`}
+            onClick={() => handleImageClick(index)}
+          />
+        ))}
       </div>
 
       <div className="down-contact-container">
@@ -174,6 +159,15 @@ const Projects = () => {
           <ChevronDown />
         </button>
       </div>
+
+      {modalOpen.map((isOpen, index) => (
+        <Modal key={index} isOpen={isOpen} onClose={() => handleCloseModal(index)}>
+          {index === 0 && <Project1 />}
+          {index === 1 && <Project2 />}
+          {index === 2 && <Project3 />}
+          {/* Add more projects as needed */}
+        </Modal>
+      ))}
     </div>
   );
 };

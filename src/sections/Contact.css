@@ -63,12 +63,6 @@
   margin: 0;
 }
 
-.contact-title {
-  font-size: 4vw;
-  font-family: 'Cardo', sans-serif;
-  margin: 30px;
-}
-
 .card-type {
   font-family: 'Rajdhani', sans-serif;
   animation: blinker 1.5s linear infinite;
@@ -84,9 +78,9 @@
   background-color: black;
   border: none;
   border-radius: 50%;
-  margin: 1vw;
-  padding: 1.7vw;
-  font-size: 1.4vw;
+  margin: 1.75vw;
+  padding: 2.3vw;
+  font-size: 2vw;
   display: flex;
   align-items: center;
   justify-content: center;

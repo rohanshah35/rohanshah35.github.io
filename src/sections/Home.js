@@ -7,7 +7,7 @@
 import React from 'react';
 import './Home.css';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
-import { ChevronDown, Linkedin, EnvelopeFill, Github } from 'react-bootstrap-icons';
+import { ChevronDown } from 'react-bootstrap-icons';
 
 const Home = () => {
   const [text] = useTypewriter({
@@ -30,8 +30,6 @@ const Home = () => {
         </span>
         <Cursor cursorStyle='<' />
       </div>
-
-
       
       <div className="down-about-container">
         <button className="down-about" onClick={scrollToAbout}>
