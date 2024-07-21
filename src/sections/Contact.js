@@ -22,11 +22,9 @@ const Contact = () => {
           <div className='card-content'>
             <p className='logo-text'>RS</p>
             <div className='card-type' style={{ color: "black", fontSize: "1.75vw" }}>
-              &lt;&nbsp;
-              <span style={{ color: "red", fontWeight: "normal" }}>
-                CLICK ME
+              <span style={{ color: "red", fontWeight: "normal", fontSize: "3vw" }}>
+                ↺
               </span>
-              &nbsp;&gt;
             </div>
           </div>
         </div>

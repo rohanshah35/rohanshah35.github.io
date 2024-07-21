@@ -8,8 +8,8 @@
 }
 
 #image-track > .image {
-  width: 34vmin;
-  height: 50vmin;
+  width: 32vmin;
+  height: 48vmin;
   object-fit: cover;
   object-position: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -30,24 +30,25 @@
 }
 
 .progress-bar {
-  height: 0.2%;
+  position: absolute;
+  top: 8%; /* Adjust this value to position vertically */
+  left: 0;
+  width: 100%;
+  height: 2px; /* Using pixels for height instead of percentage */
   background-color: black;
   border-radius: 50px;
   transition: width 0.2s ease-out;
-  margin-top: 4vw;
 }
 
 .progress-text {
-  font-size: 1vw;
-  margin-top: -21vw;
+  font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  top: 0;
-  left: 0;
+  position: absolute;
+  top: 16%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .down-contact-container {

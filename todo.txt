@@ -1,0 +1,7 @@
+Resume button
+Click & drag doesn't open project modal
+No navbar access during modal opening
+Page indicator (navbar)
+Circle progress widget (projects)
+Contact card hover animation
+About page picture slideshow

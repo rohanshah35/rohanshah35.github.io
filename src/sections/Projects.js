@@ -10,6 +10,7 @@ import Project3 from '../components/Project3';
 
 const Projects = () => {
   const [mouseDownAt, setMouseDownAt] = useState(null);
+  const [touchStartX, setTouchStartX] = useState(null);
   const [prevPercentage, setPrevPercentage] = useState(0);
   const [percentage, setPercentage] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -56,6 +57,31 @@ const Projects = () => {
     document.removeEventListener('mouseup', handleMouseUp);
   }, [handleMouseMove, percentage]);
 
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = useCallback(
+    throttle((e) => {
+      const touchDelta = touchStartX - e.touches[0].clientX;
+      const maxDelta = trackRef.current.offsetWidth / 2;
+      let nextPercentage = prevPercentage + (touchDelta / maxDelta) * -100;
+
+      nextPercentage = Math.max(-100, Math.min(0, nextPercentage));
+
+      setPercentage(nextPercentage);
+      setProgress(Math.abs(nextPercentage));
+    }, 16),
+    [touchStartX, prevPercentage]
+  );
+
+  const handleTouchEnd = useCallback(() => {
+    setTouchStartX(null);
+    setPrevPercentage(percentage);
+    document.removeEventListener('touchmove', handleTouchMove);
+    document.removeEventListener('touchend', handleTouchEnd);
+  }, [handleTouchMove, percentage]);
+
   useEffect(() => {
     const track = trackRef.current;
     const images = imageRefs.current;
@@ -77,11 +103,18 @@ const Projects = () => {
       document.addEventListener('mouseup', handleMouseUp);
     }
 
+    if (touchStartX !== null) {
+      document.addEventListener('touchmove', handleTouchMove);
+      document.addEventListener('touchend', handleTouchEnd);
+    }
+
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('touchmove', handleTouchMove);
+      document.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [percentage, mouseDownAt, handleMouseMove, handleMouseUp]);
+  }, [percentage, mouseDownAt, touchStartX, handleMouseMove, handleMouseUp, handleTouchMove, handleTouchEnd]);
 
   const handleImageClick = (index) => {
     let newModalOpen = [...modalOpen];
@@ -138,6 +171,7 @@ const Projects = () => {
           e.preventDefault();
           setMouseDownAt(e.clientX);
         }}
+        onTouchStart={handleTouchStart}
         style={{ transform: `translate(${percentage}%, -50%)` }}
       >
         {/* Render project images */}
