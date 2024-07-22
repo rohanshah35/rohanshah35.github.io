@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './Projects.css';
 import image1 from './project-images/image1.jpg';
-import image2 from './project-images/image2.jpg';
+import image3 from './project-images/image3.jpg';
 import { ChevronDown } from 'react-bootstrap-icons';
 import Modal from '../components/Modal';
 import Project1 from '../components/Project1';
@@ -175,7 +175,7 @@ const Projects = () => {
         style={{ transform: `translate(${percentage}%, -50%)` }}
       >
         {/* Render project images */}
-        {[image2, image2, image2, image2, image2, image2].map((image, index) => (
+        {[image3, image3, image3, image3, image3, image3].map((image, index) => (
           <img
             key={index}
             ref={(el) => (imageRefs.current[index] = el)}
