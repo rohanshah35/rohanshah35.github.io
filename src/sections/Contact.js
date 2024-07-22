@@ -10,7 +10,6 @@ const Contact = () => {
     setIsFlipped(!isFlipped);
   };
 
-  // Prevent flipping when clicking on buttons inside the card
   const preventFlip = (event) => {
     event.stopPropagation();
   };
@@ -22,7 +21,7 @@ const Contact = () => {
           <div className='card-content'>
             <p className='logo-text'>RS</p>
             <div className='card-type' style={{ color: "black", fontSize: "1.75vw" }}>
-              <span style={{ color: "red", fontWeight: "normal", fontSize: "3vw" }}>
+              <span style={{ color: "rgb(255, 0, 68)", fontWeight: "normal", fontSize: "2.5vw" }}>
                 ↺
               </span>
             </div>

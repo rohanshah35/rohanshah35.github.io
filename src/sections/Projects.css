@@ -18,6 +18,7 @@
 
 #image-track > .image:hover {
   transform: scale(1.1) !important;
+  cursor: pointer;
 }
 
 #image-track {
@@ -29,16 +30,6 @@
   transform: translate(0%, -50%);
 }
 
-.progress-bar {
-  position: absolute;
-  top: 8%; /* Adjust this value to position vertically */
-  left: 0;
-  width: 100%;
-  height: 2px; /* Using pixels for height instead of percentage */
-  background-color: black;
-  border-radius: 50px;
-  transition: width 0.2s ease-out;
-}
 
 .progress-text {
   font-size: 24px;

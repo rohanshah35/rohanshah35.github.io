@@ -162,7 +162,7 @@ const Projects = () => {
 
   return (
     <div id="projects" className="projects">
-      <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+      {/* <div className="progress-bar" style={{ width: `${progress}%` }}></div> */}
       <div className="progress-text"> {Math.round(progress)}% </div>
       <div
         id="image-track"
