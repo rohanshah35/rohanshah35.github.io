@@ -1,13 +1,9 @@
 import React from 'react';
 import './About.css';
 import profileImage from './face.jpg';
-import { ChevronDown } from 'react-bootstrap-icons';
 
 const About = () => {
 
-  const scrollToAbout = () => {
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div id="about" className="about">
@@ -21,11 +17,6 @@ const About = () => {
       I invite you to explore my portfolio and discover more about my journey in computer science!
       </span>
 
-      <div className="down-projects-container">
-        <button className="down-projects" onClick={scrollToAbout}>
-          <ChevronDown />
-        </button>
-      </div>
     </div>
     
   );

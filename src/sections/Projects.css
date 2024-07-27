@@ -17,7 +17,7 @@
 }
 
 #image-track > .image:hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
   cursor: pointer;
 }
 
@@ -30,18 +30,6 @@
   transform: translate(0%, -50%);
 }
 
-
-.progress-text {
-  font-size: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 16%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .down-contact-container {
   position: absolute;
   bottom: 1.75vw;
@@ -49,22 +37,11 @@
   transform: translateX(-50%);
 }
 
-.down-contacts {
-  color: black;
-  background: none;
-  border: none;
-  cursor: pointer;
-  animation: bounce 1.5s infinite ease-in-out;
-  transition: transform 0.3s ease-out;
-}
-
-.down-contacts svg {
-  width: 1.5vw;
-  height: auto;
-}
-
-.down-contacts:hover {
-  animation: none;
-  transform: scale(1.3) !important;
-  color: gray;
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 12.5%;
+  left: 48.5%;
 }

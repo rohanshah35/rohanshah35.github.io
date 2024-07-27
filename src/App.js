@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Home from './sections/Home';
 import About from './sections/About';
@@ -7,21 +7,25 @@ import Contact from './sections/Contact';
 import './App.css';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="App">
-      <Navbar /> 
-      <div className="snap-scroll-container">
-        <div className="snap-scroll-item">
-          <Home />
-        </div>
-        <div className="snap-scroll-item">
-          <About />
-        </div>
-        <div className="snap-scroll-item">
-          <Projects />
-        </div>
-        <div className="snap-scroll-item">
-          <Contact />
+      <div className={`content ${isModalOpen ? 'blur-background' : ''}`}>
+        <Navbar />
+        <div className="snap-scroll-container">
+          <div className="snap-scroll-item">
+            <Home />
+          </div>
+          <div className="snap-scroll-item">
+            <About />
+          </div>
+          <div className="snap-scroll-item">
+            <Projects setIsModalOpen={setIsModalOpen} />
+          </div>
+          <div className="snap-scroll-item">
+            <Contact />
+          </div>
         </div>
       </div>
     </div>        

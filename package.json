@@ -10,6 +10,7 @@
     "react": "^18.3.1",
     "react-bootstrap-icons": "^1.11.4",
     "react-card-flip": "^1.2.3",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.10.3",
     "react-scripts": "5.0.1",

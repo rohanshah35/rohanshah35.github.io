@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './Projects.css';
-import image1 from './project-images/image1.jpg';
-import image3 from './project-images/image3.jpg';
-import { ChevronDown } from 'react-bootstrap-icons';
+import image2 from './project-images/image2.jpg';
 import Modal from '../components/Modal';
 import Project1 from '../components/Project1';
 import Project2 from '../components/Project2';
 import Project3 from '../components/Project3';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const Projects = () => {
   const [mouseDownAt, setMouseDownAt] = useState(null);
@@ -30,10 +30,6 @@ const Projects = () => {
         }, limit);
       }
     };
-  };
-
-  const scrollToContact = () => {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleMouseMove = useCallback(
@@ -162,8 +158,21 @@ const Projects = () => {
 
   return (
     <div id="projects" className="projects">
-      {/* <div className="progress-bar" style={{ width: `${progress}%` }}></div> */}
-      <div className="progress-text"> {Math.round(progress)}% </div>
+      <div className="progress" style={{ width: 75, height: 75 }}>
+        <CircularProgressbar value={Math.round(progress)} strokeWidth={2} text={`${Math.round(progress)}%`} styles={buildStyles({
+
+        strokeLinecap: 'butt',
+
+        textSize: '26px',
+
+        pathTransitionDuration: 0.5,
+
+        pathColor: 'black',
+        textColor: 'black',
+        trailColor: '#FAFAFA',
+        backgroundColor: '#FAFAFA',
+      })}/>
+      </div>
       <div
         id="image-track"
         ref={trackRef}
@@ -175,7 +184,7 @@ const Projects = () => {
         style={{ transform: `translate(${percentage}%, -50%)` }}
       >
         {/* Render project images */}
-        {[image3, image3, image3, image3, image3, image3].map((image, index) => (
+        {[image2, image2, image2, image2, image2, image2].map((image, index) => (
           <img
             key={index}
             ref={(el) => (imageRefs.current[index] = el)}
@@ -186,12 +195,6 @@ const Projects = () => {
             onClick={() => handleImageClick(index)}
           />
         ))}
-      </div>
-
-      <div className="down-contact-container">
-        <button className="down-contacts" onClick={scrollToContact}>
-          <ChevronDown />
-        </button>
       </div>
 
       {modalOpen.map((isOpen, index) => (
