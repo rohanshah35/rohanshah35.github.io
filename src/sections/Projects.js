@@ -2,11 +2,14 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './Projects.css';
 import image2 from './project-images/image2.jpg';
 import Modal from '../components/Modal';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
+// Add projects
 import Project1 from '../components/Project1';
 import Project2 from '../components/Project2';
 import Project3 from '../components/Project3';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import Project4 from '../components/Project4';
 
 const Projects = () => {
   const [mouseDownAt, setMouseDownAt] = useState(null);
@@ -14,164 +17,112 @@ const Projects = () => {
   const [prevPercentage, setPrevPercentage] = useState(0);
   const [percentage, setPercentage] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [modalOpen, setModalOpen] = useState([false, false, false, false, false, false]);
+  const [modalOpen, setModalOpen] = useState(Array(4).fill(false));
+  const [isDragging, setIsDragging] = useState(false);
 
   const trackRef = useRef(null);
   const imageRefs = useRef([]);
 
-  const throttle = (callback, limit) => {
-    let waiting = false;
-    return (...args) => {
-      if (!waiting) {
-        callback(...args);
-        waiting = true;
-        setTimeout(() => {
-          waiting = false;
-        }, limit);
-      }
-    };
-  };
+  const handleMove = useCallback((clientX) => {
+    if (mouseDownAt === null) return;
 
-  const handleMouseMove = useCallback(
-    throttle((e) => {
-      const mouseDelta = mouseDownAt - e.clientX;
-      const maxDelta = trackRef.current.offsetWidth / 2;
-      let nextPercentage = prevPercentage + (mouseDelta / maxDelta) * -100;
+    const delta = mouseDownAt - clientX;
+    const maxDelta = trackRef.current.offsetWidth;
+    const nextPercentage = Math.max(-100, Math.min(0, prevPercentage + (delta / maxDelta) * -100));
 
-      nextPercentage = Math.max(-100, Math.min(0, nextPercentage));
+    if (Math.abs(mouseDownAt - clientX) > 5) {
+      setIsDragging(true);
+    }
 
-      setPercentage(nextPercentage);
-      setProgress(Math.abs(nextPercentage));
-    }, 16),
-    [mouseDownAt, prevPercentage]
-  );
+    setPercentage(nextPercentage);
+    setProgress(Math.abs(nextPercentage));
+  }, [mouseDownAt, prevPercentage]);
 
-  const handleMouseUp = useCallback(() => {
+  const handleEnd = useCallback(() => {
     setMouseDownAt(null);
-    setPrevPercentage(percentage);
-    document.removeEventListener('mousemove', handleMouseMove);
-    document.removeEventListener('mouseup', handleMouseUp);
-  }, [handleMouseMove, percentage]);
-
-  const handleTouchStart = (e) => {
-    setTouchStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchMove = useCallback(
-    throttle((e) => {
-      const touchDelta = touchStartX - e.touches[0].clientX;
-      const maxDelta = trackRef.current.offsetWidth / 2;
-      let nextPercentage = prevPercentage + (touchDelta / maxDelta) * -100;
-
-      nextPercentage = Math.max(-100, Math.min(0, nextPercentage));
-
-      setPercentage(nextPercentage);
-      setProgress(Math.abs(nextPercentage));
-    }, 16),
-    [touchStartX, prevPercentage]
-  );
-
-  const handleTouchEnd = useCallback(() => {
     setTouchStartX(null);
     setPrevPercentage(percentage);
-    document.removeEventListener('touchmove', handleTouchMove);
-    document.removeEventListener('touchend', handleTouchEnd);
-  }, [handleTouchMove, percentage]);
+  }, [percentage]);
 
   useEffect(() => {
     const track = trackRef.current;
     const images = imageRefs.current;
 
-    track.animate(
-      { transform: `translate(${percentage}%, -50%)` },
-      { duration: 1200, fill: 'forwards' }
-    );
+    const handleMouseMove = (e) => handleMove(e.clientX);
+    const handleTouchMove = (e) => handleMove(e.touches[0].clientX);
 
-    images.forEach((image) => {
-      image.animate(
-        { objectPosition: `${100 + percentage}% center` },
-        { duration: 1200, fill: 'forwards' }
-      );
-    });
-
-    if (mouseDownAt !== null) {
+    if (mouseDownAt !== null || touchStartX !== null) {
       document.addEventListener('mousemove', handleMouseMove);
-      document.addEventListener('mouseup', handleMouseUp);
+      document.addEventListener('touchmove', handleTouchMove);
+      document.addEventListener('mouseup', handleEnd);
+      document.addEventListener('touchend', handleEnd);
     }
 
-    if (touchStartX !== null) {
-      document.addEventListener('touchmove', handleTouchMove);
-      document.addEventListener('touchend', handleTouchEnd);
-    }
+    const animation = { duration: 1200, fill: 'forwards' };
+    track.animate({ transform: `translate(${percentage}%, -50%)` }, animation);
+    images.forEach((image, index) => {
+      if (image) {
+        image.animate({ objectPosition: `${100 + percentage}% center` }, animation);
+      }
+    });
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('touchmove', handleTouchMove);
-      document.removeEventListener('touchend', handleTouchEnd);
+      document.removeEventListener('mouseup', handleEnd);
+      document.removeEventListener('touchend', handleEnd);
     };
-  }, [percentage, mouseDownAt, touchStartX, handleMouseMove, handleMouseUp, handleTouchMove, handleTouchEnd]);
+  }, [percentage, mouseDownAt, touchStartX, handleMove, handleEnd]);
 
   const handleImageClick = (index) => {
-    let newModalOpen = [...modalOpen];
-    newModalOpen[index] = true;
-    setModalOpen(newModalOpen);
+    if (!isDragging) {
+      setModalOpen(prev => prev.map((_, i) => i === index ? true : false));
+    }
+    setIsDragging(false);
   };
 
-  const handleCloseModal = (index) => {
-    let newModalOpen = [...modalOpen];
-    newModalOpen[index] = false;
-    setModalOpen(newModalOpen);
-  };
+  const handleWheel = useCallback((e) => {
+    const scrollDelta = e.deltaY;
+    const maxDelta = trackRef.current.offsetWidth;
+    let nextPercentage = percentage - (scrollDelta / maxDelta) * 100;
+    nextPercentage = Math.max(-100, Math.min(0, nextPercentage));
 
-  const handleWheel = useCallback(
-    (e) => {
-      const scrollDelta = e.deltaY;
-      const maxPercentage = -100;
-      const minPercentage = 0;
+    setPercentage(nextPercentage);
+    setPrevPercentage(nextPercentage);
+    setProgress(Math.abs(nextPercentage));
 
-      let nextPercentage = percentage - (scrollDelta / trackRef.current.offsetWidth) * 100;
-      nextPercentage = Math.max(maxPercentage, Math.min(minPercentage, nextPercentage));
-
-      if ((nextPercentage <= maxPercentage - 1 && scrollDelta > 0) || (nextPercentage >= minPercentage + 1 && scrollDelta < 0)) {
-        return;
-      }
-
-      setPercentage(nextPercentage);
-      setPrevPercentage(nextPercentage);
-      setProgress(Math.abs(nextPercentage));
-
-      e.preventDefault();
-    },
-    [percentage]
-  );
+    e.preventDefault();
+  }, [percentage]);
 
   useEffect(() => {
     const track = trackRef.current;
-
     track.addEventListener('wheel', handleWheel);
-
-    return () => {
-      track.removeEventListener('wheel', handleWheel);
-    };
+    return () => track.removeEventListener('wheel', handleWheel);
   }, [handleWheel]);
+
+  // Change project images here
+  const images = [image2, image2, image2, image2];
+  if (imageRefs.current.length !== images.length) {
+    imageRefs.current = Array(images.length).fill(null);
+  }
 
   return (
     <div id="projects" className="projects">
-      <div className="progress" style={{ width: 75, height: 75 }}>
-        <CircularProgressbar value={Math.round(progress)} strokeWidth={2} text={`${Math.round(progress)}%`} styles={buildStyles({
-
-        strokeLinecap: 'butt',
-
-        textSize: '26px',
-
-        pathTransitionDuration: 0.5,
-
-        pathColor: 'black',
-        textColor: 'black',
-        trailColor: '#FAFAFA',
-        backgroundColor: '#FAFAFA',
-      })}/>
+      <div className="progress" style={{ width: 80, height: 80 }}>
+        <CircularProgressbar 
+          value={Math.round(progress)} 
+          strokeWidth={2} 
+          text={`${Math.round(progress)}%`} 
+          styles={buildStyles({
+            // strokeLinecap: 'butt',
+            textSize: '26px',
+            pathTransitionDuration: 0.5,
+            pathColor: 'black',
+            textColor: 'black',
+            trailColor: '#FAFAFA',
+            backgroundColor: '#FAFAFA',
+          })}
+        />
       </div>
       <div
         id="image-track"
@@ -179,15 +130,18 @@ const Projects = () => {
         onMouseDown={(e) => {
           e.preventDefault();
           setMouseDownAt(e.clientX);
+          setIsDragging(false);
         }}
-        onTouchStart={handleTouchStart}
+        onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
         style={{ transform: `translate(${percentage}%, -50%)` }}
       >
-        {/* Render project images */}
-        {[image2, image2, image2, image2, image2, image2].map((image, index) => (
+        {images.map((image, index) => (
           <img
             key={index}
-            ref={(el) => (imageRefs.current[index] = el)}
+            ref={(el) => {
+              imageRefs.current[index] = el;
+              console.log(`Image ref ${index}:`, el);
+            }}
             className="image"
             src={image}
             draggable="false"
@@ -196,14 +150,15 @@ const Projects = () => {
           />
         ))}
       </div>
-
       {modalOpen.map((isOpen, index) => (
-        <Modal key={index} isOpen={isOpen} onClose={() => handleCloseModal(index)}>
-          {index === 0 && <Project1 />}
-          {index === 1 && <Project2 />}
-          {index === 2 && <Project3 />}
-          {/* Add more projects as needed */}
-        </Modal>
+        isOpen && (
+          <Modal key={index} isOpen={isOpen} onClose={() => setModalOpen(prev => prev.map((_, i) => i === index ? false : _))}>
+            {index === 0 && <Project1 />}
+            {index === 1 && <Project2 />}
+            {index === 2 && <Project3 />}
+            {index === 3 && <Project4 />}
+          </Modal>
+        )
       ))}
     </div>
   );

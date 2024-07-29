@@ -1,15 +1,10 @@
 Projects:
     Add projects
-    Click & drag doesn't open project modal
     Project page left and right indicators
-
-Contact
-    Contact card animations
-    Contact card improvements
 
 Navbar
     Page indicator  
 
-
 About 
     Picture slideshow (auto scroll)
+    Timeline around image

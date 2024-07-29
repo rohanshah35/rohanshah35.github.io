@@ -2,7 +2,7 @@
 
 .home {
   background-color: #FAFAFA;
-  animation: fade-in 4s;
+  animation: fade-in 3s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,7 +23,7 @@
   bottom: 1.75vw;
   left: 50%;
   transform: translateX(-50%);
-  animation: initial-fade-in 3s;
+  animation: initial-fade-in 4s;
 }
 
 .down-about {

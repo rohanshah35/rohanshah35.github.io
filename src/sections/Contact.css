@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani');
 
-
 .contact {
   background-color: #FAFAFA;
   display: flex;
@@ -20,11 +19,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.5s ease;
 }
 
 .card:hover {
   cursor: pointer;
+  transform: translateY(-10px);
 }
 
 .card::before {
@@ -40,6 +40,7 @@
 
 .card-back {
   background-color: #e9e9e9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .card-content {
@@ -54,12 +55,31 @@
 }
 
 .logo-text {
-  font-size: 10vw;
+  font-size: 6.5vw;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: none;
   font-family: 'Arvo', sans-serif;
-  margin: 0;
+  margin: 20px;
+  letter-spacing: 30px;
+}
+
+.location {
+  font-size: 1.8vw;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: none;
+  margin: 10px;
+  letter-spacing: 3px;
+  animation: fade-in 2s;
+}
+
+.divider {
+  width: 30vw;
+  margin: 30px;
+  border: none;
+  border-top: 1px solid #000;
+  position: relative;
 }
 
 .profile-text {
@@ -71,6 +91,7 @@
 .card-type {
   font-family: 'Rajdhani', sans-serif;
   animation: blinker 2.5s linear infinite;
+  margin: -15px;
 }
 
 .icon-buttons {
@@ -102,5 +123,14 @@
 @keyframes blinker {
   50% {
     opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
   }
 }

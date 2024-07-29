@@ -20,9 +20,11 @@ const Contact = () => {
         <div className='card' onClick={handleClick}>
           <div className='card-content'>
             <p className='logo-text'>RS</p>
+            <p className='location'>SUNNYVALE, CA</p>
+            <hr className='divider' />
             <div className='card-type' style={{ color: "black", fontSize: "1.75vw" }}>
               <span style={{ color: "rgb(255, 0, 68)", fontWeight: "normal", fontSize: "2.5vw" }}>
-                ↺
+                ⤻
               </span>
             </div>
           </div>

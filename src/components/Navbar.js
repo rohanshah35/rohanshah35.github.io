@@ -9,16 +9,16 @@ export default function Navbar() {
     <nav className="nav">
       <ul>
         <li onClick={() => scrollToSection('home')}>
-          <span>HOME</span>
+          <span>Home</span>
         </li>
         <li onClick={() => scrollToSection('about')}>
-          <span>ABOUT</span>
+          <span>About</span>
         </li>
         <li onClick={() => scrollToSection('projects')}>
-          <span>PROJECTS</span>
+          <span>Projects</span>
         </li>
         <li onClick={() => scrollToSection('contact')}>
-          <span>CONTACT</span>
+          <span>Contact</span>
         </li>
       </ul>
     </nav>

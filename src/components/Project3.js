@@ -1,5 +1,5 @@
 import React from 'react';
-import './Project3.css'
+import './Project.css'
 
 const Project3 = () => {
   return (
