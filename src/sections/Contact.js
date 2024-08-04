@@ -22,8 +22,8 @@ const Contact = () => {
             <p className='logo-text'>RS</p>
             <p className='location'>SUNNYVALE, CA</p>
             <hr className='divider' />
-            <div className='card-type' style={{ color: "black", fontSize: "1.75vw" }}>
-              <span style={{ color: "rgb(255, 0, 68)", fontWeight: "normal", fontSize: "2.5vw" }}>
+            <div className='card-type' style={{ color: "black" }}>
+              <span style={{ color: "rgb(255, 0, 68)", fontWeight: "normal" }}>
                 ⤻
               </span>
             </div>
@@ -42,6 +42,15 @@ const Contact = () => {
           </div>
         </div>
       </ReactCardFlip>
+
+
+      <div className="phone-icon-buttons-container">
+        <div className="phone-icon-buttons">
+          <a href="https://www.linkedin.com/in/rohanshah2/" rel="noopener noreferrer" target="_blank" className="phone-icon-button" style={{ color: 'white' }} onClick={preventFlip}><Linkedin /></a>
+          <a href="mailto:rohanshahsf@gmail.com" rel="noopener noreferrer" target="_blank" className="phone-icon-button" style={{ color: 'white' }} onClick={preventFlip}><EnvelopeFill /></a>
+          <a href="https://github.com/rohanshah35" rel="noopener noreferrer" target="_blank" className="phone-icon-button" style={{ color: 'white' }} onClick={preventFlip}><Github /></a>
+        </div>
+      </div>
     </div>
   );
 };

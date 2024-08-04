@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani');
 
+.phone-icon-buttons-container {
+  display: none;
+}
+
 .contact {
   background-color: #FAFAFA;
   display: flex;
@@ -60,8 +64,9 @@
   object-fit: cover;
   box-shadow: none;
   font-family: 'Arvo', sans-serif;
-  margin: 20px;
-  letter-spacing: 30px;
+  margin: 0.8vw;
+  letter-spacing: 2vw;
+  position: relative;
 }
 
 .location {
@@ -69,14 +74,13 @@
   border-radius: 50%;
   object-fit: cover;
   box-shadow: none;
-  margin: 10px;
+  margin: 0.5vw;
   letter-spacing: 3px;
-  animation: fade-in 2s;
 }
 
 .divider {
   width: 30vw;
-  margin: 30px;
+  margin: 3vw;
   border: none;
   border-top: 1px solid #000;
   position: relative;
@@ -120,17 +124,67 @@
   background-color: rgb(255, 0, 68);
 }
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
+.phone-icon-button:hover {
+  animation: none;
+  transform: scale(1.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background-color: rgb(255, 0, 68);
+}
+
+@media (max-width: 768px) {
+  .location {
+    display: none;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .logo-text {
+    font-size: 6.5vw;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: none;
+    font-family: 'Arvo', sans-serif;
+    margin: 20px;
   }
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
+@media (max-width: 480px) {
+  .card {
+    display: none
   }
-  to {
-    opacity: 100;
+
+  .phone-icon-buttons-container {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: 'Cardo', sans-serif;
+  }
+
+  .phone-icon-button {
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    margin: 18vw;
+    padding: 10vw;
+    font-size: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.5s;
+  }
+  
+
+}  
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
   }
 }

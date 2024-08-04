@@ -108,13 +108,12 @@ const Projects = () => {
 
   return (
     <div id="projects" className="projects">
-      <div className="progress" style={{ width: 80, height: 80 }}>
+      <div className="progress">
         <CircularProgressbar 
           value={Math.round(progress)} 
           strokeWidth={2} 
           text={`${Math.round(progress)}%`} 
           styles={buildStyles({
-            // strokeLinecap: 'butt',
             textSize: '26px',
             pathTransitionDuration: 0.5,
             pathColor: 'black',

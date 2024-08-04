@@ -8,8 +8,8 @@
 }
 
 #image-track > .image {
-  width: 32vmin;
-  height: 48vmin;
+  width: 28vmin;
+  height: 42vmin;
   object-fit: cover;
   object-position: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -27,14 +27,7 @@
   position: absolute;
   left: 50%;
   top: 52%;
-  transform: translate(0%, -50%);
-}
-
-.down-contact-container {
-  position: absolute;
-  bottom: 1.75vw;
-  left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 
 .progress {
@@ -42,6 +35,41 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 13.4%;
-  left: 48.2%;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6vmin;
+  height: 6vmin;
+}
+
+@media (max-width: 768px) {
+  #image-track > .image {
+    width: 40vmin;
+    height: 60vmin;
+  }
+
+  #image-track {
+    gap: 6vmin;
+  }
+
+  .progress {
+    width: 8vmin;
+    height: 8vmin;
+  }
+}
+
+@media (max-width: 480px) {
+  #image-track > .image {
+    width: 50vmin;
+    height: 75vmin;
+  }
+
+  #image-track {
+    gap: 8vmin;
+  }
+
+  .progress {
+    width: 17vmin;
+    height: 17vmin;
+  }
 }
