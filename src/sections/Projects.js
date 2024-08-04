@@ -24,19 +24,20 @@ const Projects = () => {
   const imageRefs = useRef([]);
 
   const handleMove = useCallback((clientX) => {
-    if (mouseDownAt === null) return;
+    if (mouseDownAt === null && touchStartX === null) return;
 
-    const delta = mouseDownAt - clientX;
+    const startX = mouseDownAt !== null ? mouseDownAt : touchStartX;
+    const delta = startX - clientX;
     const maxDelta = trackRef.current.offsetWidth;
     const nextPercentage = Math.max(-100, Math.min(0, prevPercentage + (delta / maxDelta) * -100));
 
-    if (Math.abs(mouseDownAt - clientX) > 5) {
+    if (Math.abs(startX - clientX) > 5) {
       setIsDragging(true);
     }
 
     setPercentage(nextPercentage);
     setProgress(Math.abs(nextPercentage));
-  }, [mouseDownAt, prevPercentage]);
+  }, [mouseDownAt, touchStartX, prevPercentage]);
 
   const handleEnd = useCallback(() => {
     setMouseDownAt(null);
@@ -49,11 +50,14 @@ const Projects = () => {
     const images = imageRefs.current;
 
     const handleMouseMove = (e) => handleMove(e.clientX);
-    const handleTouchMove = (e) => handleMove(e.touches[0].clientX);
+    const handleTouchMove = (e) => {
+      e.preventDefault();
+      handleMove(e.touches[0].clientX);
+    };
 
     if (mouseDownAt !== null || touchStartX !== null) {
       document.addEventListener('mousemove', handleMouseMove);
-      document.addEventListener('touchmove', handleTouchMove);
+      document.addEventListener('touchmove', handleTouchMove, { passive: false });
       document.addEventListener('mouseup', handleEnd);
       document.addEventListener('touchend', handleEnd);
     }
@@ -131,7 +135,11 @@ const Projects = () => {
           setMouseDownAt(e.clientX);
           setIsDragging(false);
         }}
-        onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
+        onTouchStart={(e) => {
+          e.preventDefault();
+          setTouchStartX(e.touches[0].clientX);
+          setIsDragging(false);
+        }}
         style={{ transform: `translate(${percentage}%, -50%)` }}
       >
         {images.map((image, index) => (
