@@ -43,7 +43,6 @@ const StyledLoader = styled.div.withConfig({
 const Loader = ({ finishLoading }: { finishLoading: () => void }) => {
   const [isMounted, setIsMounted] = useState(false);
 
-  // Wrap `animate` in `useCallback` to memoize it
   const animate = useCallback(() => {
     const loader = anime.timeline({
       complete: () => finishLoading(),
@@ -82,7 +81,7 @@ const Loader = ({ finishLoading }: { finishLoading: () => void }) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), 10);
-    animate(); // `animate` is now a stable dependency
+    animate();
     return () => clearTimeout(timeout);
   }, [animate]);
 
