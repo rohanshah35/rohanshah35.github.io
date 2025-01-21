@@ -1,0 +1,165 @@
+@keyframes slideFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.imageGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 325px;
+  margin-top: 20px;
+}
+
+.topRow,
+.middleRow {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+}
+
+.profileImage,
+.dogImage,
+.landscapeImage,
+.basketballImage,
+.climbingImage,
+.mainTitle,
+.description {
+  opacity: 0;
+}
+
+.profileImage.animate {
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.dogImage.animate {
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.landscapeImage.animate {
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.basketballImage.animate {
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.climbingImage.animate {
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.mainTitle.animate {
+  animation: slideFromTop 0.8s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.description.animate {
+  animation: slideFromTop 0.8s ease forwards;
+  animation-delay: 1.4s;
+}
+
+.profileImage {
+  width: 230px;
+  height: 160px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center 30%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dogImage {
+  width: 140px;
+  height: 160px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.landscapeImage {
+  width: 325px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.basketballImage {
+  width: 155px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center 30%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.climbingImage {
+  width: 210px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center 46%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.content {
+  flex-shrink: 0;
+  width: 400px;
+}
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    order: -1;
+  }
+}
+
+.mainTitle {
+  font-family: "Roboto Mono";
+  font-size: 30px;
+  font-weight: 900;
+  color: #e6e6e6;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 300;
+  color: #b0b0b0;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 10px;
+}

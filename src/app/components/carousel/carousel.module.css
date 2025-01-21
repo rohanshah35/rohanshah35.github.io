@@ -1,0 +1,102 @@
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.embla {
+  --slide-spacing: 2rem;
+  --slide-size: 280px;
+  --slide-height: 380px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 4s ease;
+}
+
+.embla.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.embla__title {
+  font-family: "Roboto Mono", monospace;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeSlideIn 2s ease forwards;
+  animation-delay: 1s;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-x;
+  justify-content: flex-start;
+}
+
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+  position: relative;
+}
+
+.embla__slide__inner {
+  display: block;
+  position: relative;
+  height: var(--slide-height);
+  width: var(--slide-size);
+  border-radius: 0.5rem;
+  background-color: #1a1a1a;
+  overflow: hidden;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.embla__slide__inner:hover {
+  filter: blur(2px);
+}
+
+.embla__slide__img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.embla__slide__caption {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .embla {
+    --slide-spacing: 1rem;
+    --slide-size: 240px;
+    --slide-height: 320px;
+    padding: 2rem 1.2rem;
+  }
+}
