@@ -14,7 +14,7 @@ const Timeline = () => {
     {
       icon: <IconSchool />,
       title: "Purdue University",
-      subtitle: "B.S. in Computer Science",
+      subtitle: "B.S. in Computer Science, Machine Intelligence Track",
       date: "2023 -> WIP",
     },
     {

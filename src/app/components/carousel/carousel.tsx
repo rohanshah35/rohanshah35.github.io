@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback, WheelEvent as ReactWheelEvent } from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel as MantineCarousel } from "@mantine/carousel";
 import { Modal, Box, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { IconBrandGithub } from "@tabler/icons-react";
 import styles from "./carousel.module.css";
 import { useAnimateOnScroll } from "@/app/components/useAnimateOnScroll";
+import type { EmblaCarouselType } from 'embla-carousel';
 
 const AUTO_SCROLL_DELAY = 2000;
 
@@ -24,7 +25,8 @@ export interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ slides }) => {
-  const [embla, setEmbla] = useState<any>(null);
+
+  const [embla] = useState<EmblaCarouselType | null>(null);
   const [hovered, setHovered] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -128,7 +130,6 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
         unstyled
         withControls={false}
         withIndicators={false}
-        getEmblaApi={setEmbla}
         classNames={{
           viewport: styles.embla__viewport,
           container: styles.embla__container,

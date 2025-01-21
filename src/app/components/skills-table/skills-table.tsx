@@ -28,7 +28,7 @@ export const skillsData = [
 ];
 
 interface SkillsCategoryProps {
-  icon: React.FC<any>;
+  icon: React.ElementType;
   category: string;
   skills: string[];
 }

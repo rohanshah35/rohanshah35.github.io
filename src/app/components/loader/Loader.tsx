@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 import anime from "animejs";
@@ -43,11 +43,12 @@ const StyledLoader = styled.div.withConfig({
 const Loader = ({ finishLoading }: { finishLoading: () => void }) => {
   const [isMounted, setIsMounted] = useState(false);
 
-  const animate = () => {
+  // Wrap `animate` in `useCallback` to memoize it
+  const animate = useCallback(() => {
     const loader = anime.timeline({
       complete: () => finishLoading(),
     });
-  
+
     loader
       .add({
         targets: "#logo path",
@@ -77,14 +78,13 @@ const Loader = ({ finishLoading }: { finishLoading: () => void }) => {
         opacity: 0,
         zIndex: -1,
       });
-  };
-  
+  }, [finishLoading]);
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), 10);
-    animate();
+    animate(); // `animate` is now a stable dependency
     return () => clearTimeout(timeout);
-  }, []);
+  }, [animate]);
 
   return (
     <StyledLoader className="loader" isMounted={isMounted}>

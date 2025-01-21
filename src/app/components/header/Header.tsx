@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Group, Text } from "@mantine/core";
 import { Squash as Hamburger } from "hamburger-react";
 import classes from "./header.module.css";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +38,9 @@ const Header = () => {
     <Box className={classes.header}>
       <Group justify="space-between" align="center" className={classes.container}>
         <Group align="center" gap="sm">
-          <a href="/" className={classes.rs}>
+          <Link href="/" className={classes.rs}>
             RS
-          </a>
+          </Link>
         </Group>
 
         <Group gap="lg" className={`${classes.navLinks} ${classes.desktopNav}`}>
