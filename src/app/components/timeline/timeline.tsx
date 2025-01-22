@@ -1,7 +1,7 @@
 import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { IconSchool, IconCode, IconCertificate } from '@tabler/icons-react';
+import { IconSchool, IconCode, IconQuestionMark } from '@tabler/icons-react';
 
 const Timeline = () => {
   const items = [
@@ -9,13 +9,13 @@ const Timeline = () => {
       icon: <IconSchool />,
       title: "Saint Francis High School",
       subtitle: "High School Diploma",
-      date: "2019 -> 2023",
+      date: "2019 - 2023",
     },
     {
       icon: <IconSchool />,
       title: "Purdue University",
       subtitle: "B.S. in Computer Science, Machine Intelligence Track",
-      date: "2023 -> WIP",
+      date: "2023 - WIP",
     },
     {
       icon: <IconCode />,
@@ -30,7 +30,7 @@ const Timeline = () => {
       date: "Summer 2024",
     },
     {
-      icon: <IconCertificate />,
+      icon: <IconQuestionMark />,
       title: "Coming Soon...",
       subtitle: "Coming Soon...",
       date: "Summer 2025",
@@ -47,6 +47,7 @@ const Timeline = () => {
             background: '#252525',
             color: '#fff',
             fontFamily: "'Inter', sans-serif",
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
           }}
           contentArrowStyle={{ borderRight: '7px solid #252525' }}
           date={item.date.toUpperCase()}
@@ -56,9 +57,10 @@ const Timeline = () => {
           <h3
             className="vertical-timeline-element-title"
             style={{
+              fontSize: "18px",
               fontFamily: "'Inter', sans-serif",
               fontWeight: 'bold',
-              marginBottom: '10px',
+              marginBottom: '5px',
             }}
           >
             {item.title}
@@ -66,6 +68,7 @@ const Timeline = () => {
           <h4
             className="vertical-timeline-element-subtitle"
             style={{
+              fontSize: "14px",
               fontFamily: "'Inter', sans-serif",
               fontWeight: 'normal',
             }}

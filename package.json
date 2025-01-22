@@ -21,7 +21,7 @@
     "animejs": "^3.2.2",
     "embla-carousel": "^8.5.2",
     "embla-carousel-autoplay": "^8.5.2",
-    "embla-carousel-react": "^7.1.0",
+    "embla-carousel-react": "^8.0.0",
     "embla-carousel-wheel-gestures": "^8.0.1",
     "hamburger-react": "^2.5.2",
     "lucide-react": "^0.473.0",

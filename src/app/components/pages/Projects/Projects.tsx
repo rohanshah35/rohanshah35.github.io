@@ -10,7 +10,7 @@ export default function Projects() {
   const slides = [
     { 
       title: "algowar.xyz",
-      blurb: "Gamify Leetcode-style coding prep through competitive head-to-head matches",
+      blurb: "Gamifying Leetcode-style coding prep through competitive head-to-head matches",
       description:
         "Developing a full-stack web application to gamify LeetCode-style coding preparation through competitive head-to-head matches. The application features a custom REST API built with Spring Boot and PostgreSQL, hosted on AWS RDS, and implements secure user authentication using AWS Cognito. The modern front-end, designed with Next.js, supports real-time gameplay, a comprehensive social system, leaderboards, and profile pages. Gameplay is enhanced with containerized code execution using Docker, AWS Lambda, and AWS ECR, along with skill-based matchmaking powered by Redis for efficient queuing. Live gameplay is facilitated through WebSocket integration, providing a seamless real-time experience.",
       githubLink: "https://github.com/rohanshah35/algowar",
@@ -19,7 +19,7 @@ export default function Projects() {
     },
     { 
       title: "Project Ergon",
-      blurb: "Store class notes, auto-generate summaries, flashcards, and study guides with this easy-to-use tool!",
+      blurb: "Store class notes, auto-generate summaries, flashcards, and study guides with this easy-to-use tool",
       description:
         "Developed a full-stack web app for storing class notes, automatically generating summaries, flashcards, and study guides. Implemented a custom REST API with full CRUD operations, utilizing AWS S3 for file storage and OpenAI for content generation. Built an interactive, responsive front-end with React and modern CSS.",
       githubLink: "https://github.com/ergon-app",
@@ -28,7 +28,7 @@ export default function Projects() {
     },
     {
       title: "Fidelity Utility",
-      blurb: "In-house web scraping API for Fidelity users",
+      blurb: "Easy to use web scraping data API for Fidelity brokerage users",
       description:
         "This Python application serves as a mock API for Fidelity using Selenium and BeautifulSoup, allowing users to retrieve personal portfolio information as well as general fund and stock data. It also includes scripts for various portfolio metrics.",
       githubLink: "https://github.com/rohanshah35/fidelityUtility",
@@ -37,7 +37,7 @@ export default function Projects() {
     },
     {
       title: "RMP Search Tool",
-      blurb: "Find out what AI thinks about your professors...",
+      blurb: "Find out what fellow students think about your professors with NLP",
       description:
         "This Java application conducts sentiment analysis on professor ratings scraped from RateMyProfessor using Selenium. It features multiple data visualization screens to assist prospective students in evaluating professors.",
       githubLink: "https://github.com/rohanshah35/RMP-Search-Tool",

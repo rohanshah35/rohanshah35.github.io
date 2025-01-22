@@ -26,7 +26,6 @@
   background-color: #2d2d2d;
 }
 
-
 .container {
   width: 90%;
   max-width: 1200px;
@@ -85,15 +84,19 @@
   left: 0;
   width: 100%;
   height: calc(100% - 70px);
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #2d2d2d;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .drawer.open {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .menuItem {
@@ -104,6 +107,11 @@
   margin: 10px 0;
   transition: color 0.3s ease;
 }
+
+.menuItem:hover {
+  color: #ffc66d;
+}
+
 
 @keyframes slideInTop {
   0% {
