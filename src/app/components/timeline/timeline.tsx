@@ -47,7 +47,7 @@ const Timeline = () => {
             background: '#252525',
             color: '#fff',
             fontFamily: "'Inter', sans-serif",
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',
           }}
           contentArrowStyle={{ borderRight: '7px solid #252525' }}
           date={item.date.toUpperCase()}

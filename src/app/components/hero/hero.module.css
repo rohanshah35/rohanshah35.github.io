@@ -39,7 +39,6 @@
   }
 }
 
-
 .content {
   max-width: 500px;
   margin-right: 40px;
@@ -106,9 +105,9 @@
   animation-delay: 0.8s;
   font-family: "Inter";
 
-    @media (max-width: 768px) {
-      margin-bottom: 30px;
-    }
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+  }
 }
 
 .link {
@@ -131,11 +130,17 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.1s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   gap: 8px;
   opacity: 0;
   animation: slideFromTop 0.8s ease forwards;
   animation-delay: 1s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.customButton:hover {
+  background: linear-gradient(135deg, #ff8080, #ff4d4d);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .icon {

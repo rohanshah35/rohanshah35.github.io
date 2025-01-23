@@ -36,7 +36,7 @@
   font-weight: 900;
   text-align: center;
   color: #fff;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   opacity: 0;
   animation: fadeSlideIn 2s ease forwards;
   animation-delay: 1s;
@@ -72,6 +72,7 @@
   overflow: hidden;
   cursor: pointer;
   transition: filter 0.3s ease;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .embla__slide__inner:hover {
@@ -82,9 +83,9 @@
   display: block;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(1.6);
 }
 
 .embla__slide__caption {

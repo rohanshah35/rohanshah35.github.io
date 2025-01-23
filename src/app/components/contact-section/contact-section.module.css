@@ -81,13 +81,13 @@
   border-radius: 50%;
   text-decoration: none;
   color: white;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contactButton:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.6);
 }
 
 .redGradient {
