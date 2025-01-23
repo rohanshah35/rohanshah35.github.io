@@ -140,7 +140,7 @@
 
 .customButton:hover {
   background: linear-gradient(135deg, #ff8080, #ff4d4d);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .icon {
