@@ -70,7 +70,10 @@ export function AboutHero() {
             ref={descRef}
             className={`${classes.description} ${descInView ? classes.animate : ""}`}
           >
-            Growing up in the Bay Area, surrounded by the innovation of Silicon Valley, I developed an early interest in technology. My Dad helped me build my first PC at age 11, sparking a curiosity that has only grown since. Through school, internships, and personal projects, I&apos;ve built a strong foundation in software development, gaining diverse experience and refining my skills. Exploring new challenges, creating solutions, and learning along the way are what keep me continually falling in love with software development.
+            Growing up in the Bay Area, near the heart of Silicon Valley, I was surrounded by technology and innovation from an early age. 
+            Building my first PC with my dad at 11 sparked a curiosity about how things work that has stuck with me ever since. 
+            Over the years, through school, internships, and personal projects, I've built a solid foundation in software development, gaining hands-on experience and sharpening my skills. 
+            I'm driven by the excitement of tackling new challenges, building creative solutions, and constantly learning—things that keep me passionate about this field.
           </Text>
           <Text className={`${classes.description} ${descInView ? classes.animate : ""}`}>
             When I&apos;m not coding, you can see me at the gym lifting, bouldering, on a hike, or playing my guitar!

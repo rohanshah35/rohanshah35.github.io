@@ -16,7 +16,7 @@ export function Hero() {
           </Text>
           <Text className={classes.description}>
             I&apos;m currently a second-year Computer Science student at Purdue University. 
-            What really motivates me, though, are projects I work on outside of the classroom! 
+            What really motivates me, though, is what I work on outside of the classroom! 
           </Text>
           <Text className={classes.description}>
             Right now, I&apos;m working on{" "}
