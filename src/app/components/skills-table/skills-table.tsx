@@ -22,7 +22,7 @@ export const skillsData = [
   },
   {
     category: 'DEVELOPER TOOLS',
-    skills: ['Git / GitHub', 'AWS (Cognito / Elasticache / RDS / S3 / Lambda / EC2)', 'Docker', 'Redis', 'Postman'],
+    skills: ['Git / GitHub', 'AWS', 'Docker', 'Redis', 'Postman'],
     icon: IconTool,
   },
 ];
