@@ -16,10 +16,10 @@ export function Hero() {
           </Text>
           <Text className={classes.description}>
             I&apos;m currently a second-year Computer Science student at Purdue University. 
-            What really motivates me, though, is what I work on outside of the classroom! 
+            What really motivates me is what I work on outside of the classroom! 
           </Text>
           <Text className={classes.description}>
-            Right now, I&apos;m working on{" "}
+            Right now, I&apos;m developing{" "}
             <Link
               href="https://algowar.xyz"
               className={classes.link}
