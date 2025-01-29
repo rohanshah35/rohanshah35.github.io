@@ -12,7 +12,7 @@ export function Hero() {
           <Text className={classes.introText}>Hi there, I&apos;m</Text>
           <Title className={classes.mainTitle}>Rohan Shah</Title>
           <Text className={classes.location}>
-            <IconUserPin size={20} className={classes.locationIcon} /> Bay Area, California
+            <IconUserPin size={20} className={classes.locationIcon} /> San Francisco Bay Area, California
           </Text>
           <Text className={classes.description}>
             I&apos;m currently a second-year Computer Science student at Purdue University. 
