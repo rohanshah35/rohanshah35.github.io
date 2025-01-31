@@ -1,18 +1,21 @@
 "use client";
 
 import { MantineProvider } from "@mantine/core";
-import { HelmetProvider } from "react-helmet-async";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <HelmetProvider>
+      <HelmetProvider>
+        <Helmet>
+          <title>Rohan Shah</title>
+        </Helmet>
+        <body>
           <MantineProvider>
             {children}
           </MantineProvider>
-        </HelmetProvider>
-      </body>
+        </body>
+      </HelmetProvider>
     </html>
   );
 }
