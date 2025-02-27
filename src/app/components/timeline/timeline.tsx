@@ -1,39 +1,41 @@
 import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { IconSchool, IconCode, IconQuestionMark } from '@tabler/icons-react';
+import { IconSchool, IconCode } from '@tabler/icons-react';
 
 const Timeline = () => {
   const items = [
     {
-      icon: <IconSchool />,
-      title: "Saint Francis High School",
-      subtitle: "High School Diploma",
-      date: "2019 - 2023",
+      icon: <IconSchool />, 
+      title: "Saint Francis High School", 
+      subtitle: "High School Diploma", 
+      location: "Mountain View, CA",
+      date: "2019 - 2023", 
+      url: "https://www.sfhs.com/"
     },
     {
-      icon: <IconSchool />,
-      title: "Purdue University",
-      subtitle: "B.S. in Computer Science, Machine Intelligence Track",
-      date: "2023 - WIP",
+      icon: <IconSchool />, 
+      title: "Purdue University", 
+      subtitle: "B.S. in Computer Science, Machine Learning Concentration", 
+      location: "West Lafayette, IN",
+      date: "2023 - WIP", 
+      url: "https://www.purdue.edu/"
     },
     {
-      icon: <IconCode />,
-      title: "ThetaRho.ai",
-      subtitle: "Software Engineer Intern",
-      date: "Summer 2024",
+      icon: <IconCode />, 
+      title: "ThetaRho", 
+      subtitle: "Software Engineer Intern", 
+      location: "San Jose, CA",
+      date: "Summer 2024", 
+      url: "https://www.thetarho.ai/"
     },
     {
-      icon: <IconCode />,
-      title: "IDWR Office",
-      subtitle: "Software Engineer Intern",
-      date: "Summer 2024",
-    },
-    {
-      icon: <IconQuestionMark />,
-      title: "Coming Soon...",
-      subtitle: "Coming Soon...",
-      date: "Summer 2025",
+      icon: <IconCode />, 
+      title: "Visa", 
+      subtitle: "Software Engineer Intern", 
+      location: "Austin, TX",
+      date: "Summer 2025", 
+      url: "https://www.visa.com/"
     },
   ];
 
@@ -46,7 +48,7 @@ const Timeline = () => {
           contentStyle={{
             background: '#252525',
             color: '#fff',
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "Roboto Mono",
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',
           }}
           contentArrowStyle={{ borderRight: '7px solid #252525' }}
@@ -63,7 +65,13 @@ const Timeline = () => {
               marginBottom: '5px',
             }}
           >
-            {item.title}
+            {item.url ? (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                {item.title}
+              </a>
+            ) : (
+              item.title
+            )}
           </h3>
           <h4
             className="vertical-timeline-element-subtitle"
@@ -75,6 +83,20 @@ const Timeline = () => {
           >
             {item.subtitle}
           </h4>
+          {item.location && (
+            <p
+              className="vertical-timeline-element-location"
+              style={{
+                fontSize: "12px",
+                fontFamily: "'Inter', sans-serif",
+                fontStyle: "italic",
+                color: "#ccc",
+                marginTop: "5px",
+              }}
+            >
+              {item.location}
+            </p>
+          )}
         </VerticalTimelineElement>
       ))}
     </VerticalTimeline>
