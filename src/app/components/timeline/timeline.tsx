@@ -16,7 +16,7 @@ const Timeline = () => {
     {
       icon: <IconSchool />, 
       title: "Purdue University", 
-      subtitle: "B.S. in Computer Science, Machine Learning Concentration", 
+      subtitle: "B.S. in Computer Science, Concentration in Machine Learning", 
       location: "West Lafayette, IN",
       date: "2023 - WIP", 
       url: "https://www.purdue.edu/"
