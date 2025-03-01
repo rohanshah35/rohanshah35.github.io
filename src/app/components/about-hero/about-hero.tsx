@@ -73,7 +73,7 @@ export function AboutHero() {
             Growing up in Silicon Valley, I was surrounded by technology and innovation from an early age. 
             Building my first PC with my dad at 11 sparked a curiosity about how things work that has stuck with me ever since. 
             Over the years, through school, internships, and personal projects, I&apos;ve built a solid foundation in software development, gaining hands-on experience and sharpening my skills. 
-            I&apos;m driven by the excitement of tackling new challenges, building creative solutions, and constantly learning—things that keep me passionate about this field.
+            I&apos;m driven by the excitement of tackling new challenges, building creative solutions, and constantly learning, all things that keep me passionate about this field.
 
           </Text>
           <Text className={`${classes.description} ${descInView ? classes.animate : ""}`}>
