@@ -19,7 +19,8 @@ export function Hero() {
             What really motivates me is what I work on outside of the classroom! 
           </Text>
           <Text className={classes.description}>
-            Right now, I&apos;m developing{" "}
+            Currently working on{" "}
+            {/* Right now, I&apos;m developing{" "} */}
             <Link
               href="https://algowar.xyz"
               className={classes.link}
