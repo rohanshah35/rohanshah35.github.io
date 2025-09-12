@@ -15,20 +15,21 @@ export function Hero() {
             <IconUserPin size={20} className={classes.locationIcon} /> San Francisco Bay Area, California
           </Text>
           <Text className={classes.description}>
-            I&apos;m currently a second-year Computer Science student at Purdue University. 
+            I&apos;m currently a third-year Computer Science student at Purdue University. 
             What really motivates me is what I work on outside of the classroom! 
           </Text>
           <Text className={classes.description}>
-            Currently working on{" "}
+            I just finished up an internship at{" "}
             {/* Right now, I&apos;m developing{" "} */}
             <Link
-              href="https://algowar.xyz"
+              href="https://usa.visa.com/"
               className={classes.link}
               target="_blank"
               rel="noopener noreferrer"
             >
-              algowar.xyz
+              Visa
             </Link>
+            {" "}where I developed company wide GenAI solutions that automated analytics and reporting at scale, to cut delivery times and empower leaders with instant, self-serve insights for faster decision-making.
           </Text>
           <Link
             href="/Rohan_Shah_Resume.pdf"

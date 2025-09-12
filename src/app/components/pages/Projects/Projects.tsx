@@ -5,9 +5,19 @@ import image1 from "@/app/components/assets/ergon.png";
 import image2 from "@/app/components/assets/fidelityUtility.png";
 import image3 from "@/app/components/assets/rmpSearch.png";
 import image4 from "@/app/components/assets/algowar.png";
+import image5 from "@/app/components/assets/dannyai.jpg";
 
 export default function Projects() {
   const slides = [
+    { 
+      title: "Danny.ai",
+      blurb: "Winner @ Catapult Hacks, Purdue's Largest AI x Startup Hackathon",
+      description:
+        "Danny.ai is an AI-powered agent embedded within a comprehensive dashboard, designed to optimize your construction or remodeling journey. It effortlessly tracks budgets and timelines, answers general and specific project queries through a context-aware chatbot, generates visual previews of interior designs, and even automates sourcing by making phone calls to suppliers on your behalf.",
+      githubLink: "https://devpost.com/software/danny-ai",
+      image: image5.src,
+      techStack: "FastAPI, LangChain, OpenAI API, React"
+    },
     { 
       title: "algowar.xyz",
       blurb: "Gamifying Leetcode-style coding prep through competitive head-to-head matches",
